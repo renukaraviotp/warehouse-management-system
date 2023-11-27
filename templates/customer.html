@@ -1,0 +1,56 @@
+{% extends 'adminnavbar.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    {% comment %} .row {
+      margin: 100px;
+    } {% endcomment %}
+  </style>
+</head>
+<div class="container">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h6 class="panel-title">Total Customers</h6>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Picture</th>
+          <th>Age</th>
+          <th>Contact</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for c in customers %}
+      <tr>
+        <td> {{c.user.username}}</td>
+        <td> <img src="{{c.photo.url}}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{c.age}}</td>
+        <td>{{c.number}}</td>
+        <td>{{c.address}}</td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete_customer_view' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

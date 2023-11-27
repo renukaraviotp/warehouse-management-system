@@ -1,0 +1,53 @@
+from django.urls import path,include
+from .import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('',views.home_view,name='home_view'),
+    path('index',views.index,name='index'),
+    path('admin',views.admin,name='admin'),
+    path('client',views.client,name='client'),
+    path('delivery',views.delivery,name='delivery'),
+    path('client_signup',views.client_signup,name='client_signup'),
+    path('delivery_signup',views.delivery_signup,name='delivery_signup'),
+    path('client_reg',views.client_reg,name='client_reg'),
+    path('delivery_reg',views.delivery_reg,name='delivery_reg'),
+    path('login1',views.login1,name='login1'),
+    path('logoutt',views.logoutt,name='logoutt'),
+    path('approveaction',views.approveaction,name='approveaction'),
+    path('show_nofification',views.show_nofification,name='show_nofification'),
+    path('admin_dashboard_view',views.admin_dashboard_view,name='admin_dashboard_view'),
+    path('admin_add_product_view',views.admin_add_product_view,name='admin_add_product_view'),
+    path('admin_products_view',views.admin_products_view,name='admin_products_view'),
+    path('update_product_view/<int:pk>',views.update_product_view,name='update_product_view'),
+    path('delete_product_view/<int:pk>',views.delete_product_view,name='delete_product_view'),
+    path('admin_view_booking_view',views.admin_view_booking_view,name='admin_view_booking_view'),
+    path('delete_order_view/<int:pk>',views.delete_order_view,name='delete_order_view'),
+    path('view_customer_view',views.view_customer_view,name='view_customer_view'),
+    path('delete_customer_view/<int:pk>',views.delete_customer_view,name='delete_customer_view'),
+    path('search_view',views.search_view,name='search_view'),
+    path('add_to_cart_view/<int:pk>',views.add_to_cart_view,name='add_to_cart_view'),
+    path('cart_view',views.cart_view,name='cart_view'),
+    path('remove_from_cart_view/<int:pk>',views.remove_from_cart_view,name='remove_from_cart_view'),
+    path('customer_home_view',views.customer_home_view,name='customer_home_view'),
+    path('customer_address_view',views.customer_address_view,name='customer_address_view'),
+    path('payment_success_view',views.payment_success_view,name='payment_success_view'),
+    path('my_order_view',views.my_order_view,name='my_order_view'),
+    path('my_profile_view',views.my_profile_view,name='my_profile_view'),
+    path('approval/<int:pk>',views.approval,name='approval'),
+    path('approvedetails',views.approvedetails,name='approvedetails'),
+    path('disapproval/<int:pk>',views.disapproval,name='disapproval'),
+    path('delivery_approve',views.delivery_approve,name='delivery_approve'),
+    path('view_delivery_view',views.view_delivery_view,name='view_delivery_view'),
+    path('delete_delivery_view/<int:pk>',views.delete_delivery_view,name='delete_delivery_view'),
+    path('client_approve',views.client_approve,name='client_approve'),
+    # path('approvedetails_client',views.approvedetails_client,name='approvedetails_client'),
+    # path('approval_client/<int:pk>',views.approval_client,name='approval_client'),
+    # path('disapproval_client/<int:pk>',views.disapproval_client,name='disapproval_client'),
+    # path('show_notification_c',views.show_notification_c,name='show_notification_c'),
+    path('delivery_order',views.delivery_order,name='delivery_order'),
+    path('update_order_view<int:pk>',views.update_order_view,name='update_order_view'),
+    
+    
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

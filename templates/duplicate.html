@@ -1,0 +1,128 @@
+{% extends "homenavbar.html" %}
+{% block content %}
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <title>Warehouse Management</title>
+    <style media="screen">
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #bdc3c7;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  
+    background: linear-gradient(to bottom, #2c3e50, #bdc3c7); 
+
+}
+
+.box {
+    width: 100%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #313131;
+    border-radius: 50px;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    /* text-transform: uppercase; */
+    font-weight: 500
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+
+    </style>
+  </head>
+  <body>
+    <h1 style='color:white;'><center>Delivery Signup</center></h1>
+    {% comment %} {% include "ecom/navbar.html" %} {% endcomment %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form action='{% url "delivery_reg" %}' method='post' enctype="multipart/form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style='color:white;'>First Name</label>
+                        <input type="text" name='fname' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" style='color:white;'>Last Name</label>
+                        <input type="text" name='lname' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" style='color:white;'>Username</label>
+                      <input type="text" name='uname' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style='color:darkgreen;'>Email</label>
+                        <input type="email" name='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+                      </div> 
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" style='color:darkgreen;'>Contact</label>
+                        <input type="text" name='contact' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact number">
+                      </div>
+                      <div class="form-group">
+                        <input type="hidden" name="text" value="2">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" style='color:darkgreen;'>Image</label>
+                        <input type="file" name='image' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} <br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br> {% endcomment %}
+{% comment %} {% include "ecom/footer.html" %} {% endcomment %}
+  </body>
+{% endblock %}
